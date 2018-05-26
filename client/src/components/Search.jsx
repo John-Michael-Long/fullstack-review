@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 class Search extends React.Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class Search extends React.Component {
     }
   }
 
-  onChange (e) {
+  handleChange (e) {
     this.setState({
       term: e.target.value
     });
@@ -21,8 +22,8 @@ class Search extends React.Component {
   render() {
     return (<div>
       <h4>Add more repos!</h4>
-      Enter a github username: <input value={this.state.terms} onChange={this.onChange}/>       
-      <button onClick={this.search}> Add Repos </button>
+      Enter a github username: <input value={this.state.term} onChange={this.handleChange.bind(this)}/>       
+      <button onClick={this.search.bind(this)}> Add Repos </button>
     </div>) 
   }
 }
